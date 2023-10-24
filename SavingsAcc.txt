@@ -1,0 +1,42 @@
+package com.amdocs.bank;
+
+public class SavingsAcc extends BankAcc {
+	
+	protected double interest;
+	public SavingsAcc(String acc_Id,double cur_bal,double interest)
+	{
+		
+		super(acc_Id,cur_bal);
+		
+		this.interest=interest;
+		
+	}
+	public void addInterest()
+	{
+		//double interest = amount*0.03;
+		deposit(interest);
+	}
+	@Override
+	public void deposit(double amount) {
+		// TODO Auto-generated method stu
+		double interest = amount*0.03;
+		super.deposit(amount);
+		cur_bal=amount+interest;
+		System.out.println("Interest of INR " +interest + " added to savings account");
+		System.out.println("Total Balance After Adding Interest : " + (cur_bal));	
+	}
+	@Override
+	public void withDraw(double amount) {
+		// TODO Auto-generated method stub
+		super.withDraw(amount);
+		
+	}
+	@Override
+	public void Transfer(BankAcc targetAcc, double amount) {
+		// TODO Auto-generated method stub
+		super.Transfer(targetAcc, amount);
+		
+	}
+
+	
+}
